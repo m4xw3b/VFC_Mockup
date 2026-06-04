@@ -2,8 +2,7 @@
 
 Este repositório contém o código-fonte de um **mockup (protótipo visual e funcional básico)** para um novo website do Vitória Futebol Clube. O projeto foi desenvolvido de forma independente como uma peça de portefólio, focando-se na modernização da presença online do clube, na experiência do utilizador (UX) e na centralização de informações essenciais para os adeptos e sócios.
 
-🚀 **[CLICA AQUI PARA VISUALIZAR O MOCKUP ATIVO]**
-* https://m4xw3b.github.io/VFC_Mockup/ *
+🚀 ** https://m4xw3b.github.io/VFC_Mockup/ **
 
 ## 📄 Sobre o Projeto
 
