@@ -256,36 +256,33 @@
         .produto img { max-width: 100%; border-radius: 8px; margin-bottom: 15px; }
         .produto h4 { margin: 0 0 10px 0; font-size: 16px; color: var(--verde-vitoria); }
 
-        /* Rodapé de Informações (Apenas Links Legais) */
+        /* Rodapé de Informações (Links Legais Lado a Lado) */
         .footer-info {
             background-color: var(--fundo-bege);
             padding: 30px 20px;
             margin-top: 40px;
             border-top: 2px solid var(--verde-vitoria);
+            text-align: center;
         }
         
-        .bloco-links-duplos {
+        .links-legais-linha {
             display: flex;
-            gap: 60px;
             justify-content: center;
-            text-align: left;
+            flex-wrap: wrap;
+            gap: 25px; /* Espaçamento entre os links */
         }
         
-        @media (max-width: 500px) {
-            .bloco-links-duplos { flex-direction: column; gap: 15px; text-align: center; }
-        }
-
-        .links-legais {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        .links-legais a {
+        .links-legais-linha a {
             color: var(--verde-vitoria);
-            text-decoration: underline;
+            text-decoration: none;
             font-size: 16px;
+            font-weight: 500;
         }
-        .links-legais a:hover { color: var(--verde-escuro); text-decoration: none; }
+        
+        .links-legais-linha a:hover {
+            color: var(--verde-escuro);
+            text-decoration: underline;
+        }
 
         /* Rodapé Final */
         footer {
@@ -603,20 +600,16 @@
         </div>
     </div>
 
-    <!-- RODAPÉ LIMPO (Apenas Links Legais) -->
+    <!-- RODAPÉ LIMPO (Apenas Links Legais em Linha) -->
     <div class="footer-info">
-        <div class="bloco-links-duplos">
-            <div class="links-legais">
-                <a href="#">Política de Privacidade</a>
-                <a href="#">Cookies</a>
-                <a href="#">RGPD</a>
-            </div>
-            <div class="links-legais">
-                <a href="#">Termos e Condições</a>
-                <a href="#">Livro de Reclamações</a>
-                <p style="margin-top: 10px; color: var(--verde-vitoria); font-weight: bold;">dpo@vfc.pt</p>
-            </div>
+        <div class="links-legais-linha">
+            <a href="#">Política de Privacidade</a>
+            <a href="#">Cookies</a>
+            <a href="#">RGPD</a>
+            <a href="#">Termos e Condições</a>
+            <a href="#">Livro de Reclamações</a>
         </div>
+        <p style="margin-top: 15px; color: var(--verde-vitoria); font-weight: bold; font-size: 16px;">dpo@vfc.pt</p>
     </div>
 
     <!-- RODAPÉ FINAL -->
