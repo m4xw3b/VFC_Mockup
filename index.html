@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vitória Futebol Clube - Mockup Completo</title>
+    <title>Vitória Futebol Clube</title>
     
     <!-- Ícone do Separador (Favicon) -->
-    <link rel="icon" href="vfc_ico.png" sizes="32x32">
+    <link rel="icon" href="https://socio.vfc.pt/wp-content/uploads/2025/10/cropped-logo-32x32.png" sizes="32x32">
+    
+    <!-- Biblioteca de Ícones (FontAwesome) para as Redes Sociais -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         /* Estilos Base e Variáveis */
         :root {
             --verde-vitoria: #3c7d42;
             --branco: #FFFFFF;
-            --cinza-claro: #F4F4F4;
+            --fundo-site: #eef3ef; /* Tom muito suave de verde/cinza para não ficar demasiado branco */
             --fundo-bege: #f3efe6;
             --texto-escuro: #333333;
             --verde-escuro: #2a5a2e;
@@ -23,7 +26,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--cinza-claro);
+            background-color: var(--fundo-site);
             color: var(--texto-escuro);
             line-height: 1.6;
         }
@@ -32,14 +35,15 @@
         header {
             background-color: var(--branco);
             color: var(--texto-escuro);
-            padding: 10px 50px;
+            padding: 15px 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(60, 125, 66, 0.1); /* Sombra ligeiramente esverdeada */
             position: sticky;
             top: 0;
             z-index: 1000;
+            border-bottom: 3px solid var(--verde-vitoria); /* Linha verde de destaque */
         }
 
         .logo-container {
@@ -49,9 +53,48 @@
             cursor: pointer;
         }
 
-        .logo-container img { max-height: 50px; width: auto; }
-        .logo-container h1 { margin: 0; font-size: 20px; color: var(--verde-vitoria); }
+        .logo-container img { max-height: 60px; width: auto; }
+        .logo-container h1 { 
+            margin: 0; 
+            font-size: 22px; 
+            color: var(--verde-vitoria); 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
+        .header-direita {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 15px;
+        }
+
+        /* Redes Sociais no Topo */
+        .redes-sociais-topo {
+            display: flex;
+            gap: 10px;
+        }
+
+        .redes-sociais-topo a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 32px;
+            height: 32px;
+            background-color: var(--verde-vitoria);
+            color: var(--branco);
+            border-radius: 50%; /* Faz o círculo */
+            text-decoration: none;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .redes-sociais-topo a:hover {
+            background-color: var(--verde-escuro);
+            transform: scale(1.1);
+        }
+
+        /* Navegação */
         nav ul {
             list-style: none; margin: 0; padding: 0; display: flex; gap: 20px;
             flex-wrap: wrap;
@@ -59,7 +102,7 @@
 
         nav button {
             background: none; border: none; color: var(--texto-escuro);
-            font-weight: bold; text-transform: uppercase; font-size: 14px;
+            font-weight: bold; text-transform: uppercase; font-size: 15px;
             cursor: pointer; transition: color 0.3s; font-family: inherit;
         }
 
@@ -77,18 +120,25 @@
             display: grid; grid-template-columns: 2fr 1fr; gap: 30px;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
             .grid-layout { grid-template-columns: 1fr; }
-            header { flex-direction: column; gap: 15px; padding: 15px; }
+            header { flex-direction: column; gap: 15px; padding: 15px; align-items: center; }
+            .header-direita { align-items: center; }
+            .logo-container h1 { font-size: 18px; }
         }
 
+        /* Cartões com identidade do clube */
         .cartao {
-            background-color: var(--branco); padding: 30px; border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 20px;
+            background-color: var(--branco); 
+            padding: 30px; 
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
+            margin-bottom: 20px;
+            border-top: 4px solid var(--verde-vitoria); /* Destaque verde nos blocos */
         }
 
         .cartao h3 {
-            color: var(--verde-vitoria); margin-top: 0; border-bottom: 2px solid var(--verde-vitoria);
+            color: var(--verde-vitoria); margin-top: 0; border-bottom: 2px solid var(--fundo-site);
             padding-bottom: 10px; text-transform: uppercase;
         }
         
@@ -98,7 +148,7 @@
 
         .img-fluida { width: 100%; border-radius: 6px; margin-top: 10px; }
         .img-hero { width: 100%; max-height: 500px; object-fit: cover; }
-        .img-destaque-inicio { width: 100%; border-radius: 8px; margin-bottom: 30px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .img-destaque-inicio { width: 100%; border-radius: 8px; margin-bottom: 30px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border: 2px solid var(--verde-vitoria); }
 
         /* Galeria de Fotos */
         .galeria-fotos {
@@ -132,21 +182,14 @@
             padding: 40px;
             border-radius: 8px;
             margin-bottom: 40px;
+            border-top: 4px solid var(--verde-vitoria);
         }
         .seccao-quotas h3 {
-            color: var(--verde-vitoria);
-            margin: 0 0 5px 0;
-            border: none;
-            text-transform: none;
-            font-size: 22px;
-            text-align: center;
+            color: var(--verde-vitoria); margin: 0 0 5px 0; border: none; text-transform: none;
+            font-size: 22px; text-align: center;
         }
         .seccao-quotas > p.subtitulo {
-            color: var(--verde-vitoria);
-            font-weight: bold;
-            margin-top: 0;
-            margin-bottom: 30px;
-            text-align: center;
+            color: var(--verde-vitoria); font-weight: bold; margin-top: 0; margin-bottom: 30px; text-align: center;
         }
         
         .vantagens-grid {
@@ -156,8 +199,7 @@
         @media (max-width: 768px) { .vantagens-grid { grid-template-columns: 1fr; } }
         
         .vantagens-grid h4 {
-            color: var(--verde-vitoria); text-transform: uppercase;
-            font-size: 16px; margin-bottom: 15px;
+            color: var(--verde-vitoria); text-transform: uppercase; font-size: 16px; margin-bottom: 15px;
         }
         .vantagens-coluna p, .vantagens-coluna li { margin-bottom: 12px; font-size: 15px; }
 
@@ -176,18 +218,14 @@
         }
         .quota-item h4 { color: var(--verde-vitoria); margin-bottom: 5px; font-size: 16px; }
         .quota-item p { font-weight: bold; font-size: 18px; color: var(--texto-escuro); margin: 10px 0 15px 0; }
-        
-        .info-quotas { text-align: left; max-width: 800px; margin: 0 auto; color: var(--verde-vitoria); }
-        .info-quotas h4 { text-align: center; color: var(--verde-vitoria); margin-bottom: 20px; font-size: 20px; }
-        .info-quotas p { color: var(--verde-escuro); margin-bottom: 15px; }
 
         /* Formulário de Sócio */
         .form-proposta { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         @media (max-width: 768px) { .form-proposta { grid-template-columns: 1fr; } }
         .form-group { display: flex; flex-direction: column; text-align: left; }
         .form-group.full-width { grid-column: 1 / -1; }
-        .form-group label { font-weight: bold; margin-bottom: 8px; color: var(--texto-escuro); }
-        .form-group input, .form-group select, .form-group textarea {
+        .form-group label { font-weight: bold; margin-bottom: 8px; color: var(--verde-vitoria); }
+        .form-group input, .form-group select {
             padding: 12px; border: 1px solid #ccc; border-radius: 4px;
             font-family: inherit; font-size: 16px;
         }
@@ -196,81 +234,99 @@
             box-shadow: 0 0 5px rgba(60, 125, 66, 0.3);
         }
 
-        /* Grid da Loja */
-        .grid-loja { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
-        .produto { text-align: center; padding: 15px; display: flex; flex-direction: column; justify-content: space-between; }
-        .produto img { max-width: 100%; border-radius: 8px; border: 1px solid #ddd; margin-bottom: 15px; }
-        .produto h4 { margin: 0 0 10px 0; font-size: 16px; }
-
-        /* Rodapé de Informações */
-        .footer-info {
-            background-color: var(--fundo-bege);
-            color: var(--verde-escuro);
-            padding: 25px 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
+        /* Bloco Contactos Gestão de Sócios */
+        .contactos-socios {
+            background-color: var(--verde-vitoria);
+            color: var(--branco);
+            padding: 30px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
             text-align: center;
-            font-size: 14px;
             margin-top: 40px;
         }
-        .footer-info h5 {
-            color: var(--verde-vitoria);
-            font-size: 15px;
-            margin-bottom: 5px;
-            margin-top: 0;
+        .contactos-socios h4 { color: var(--branco); font-size: 20px; margin-top: 0; margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 10px; }
+        .contactos-socios p { font-size: 16px; line-height: 1.8; margin: 0; }
+
+        /* Grid da Loja */
+        .grid-loja { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+        .produto { text-align: center; padding: 15px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #eee; border-radius: 8px; transition: box-shadow 0.3s; }
+        .produto:hover { box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .produto img { max-width: 100%; border-radius: 8px; margin-bottom: 15px; }
+        .produto h4 { margin: 0 0 10px 0; font-size: 16px; color: var(--verde-vitoria); }
+
+        /* Rodapé de Informações (Apenas Links Legais) */
+        .footer-info {
+            background-color: var(--fundo-bege);
+            padding: 30px 20px;
+            margin-top: 40px;
+            border-top: 2px solid var(--verde-vitoria);
         }
-        .footer-info p { margin: 2px 0; }
         
-        /* Nova Divisão a Duas Colunas para os Links Legais */
         .bloco-links-duplos {
             display: flex;
-            gap: 25px;
+            gap: 60px;
             justify-content: center;
             text-align: left;
         }
+        
+        @media (max-width: 500px) {
+            .bloco-links-duplos { flex-direction: column; gap: 15px; text-align: center; }
+        }
+
         .links-legais {
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            gap: 10px;
         }
         .links-legais a {
             color: var(--verde-vitoria);
             text-decoration: underline;
-            margin: 0;
+            font-size: 16px;
         }
-        .links-legais a:hover { color: var(--verde-escuro); }
+        .links-legais a:hover { color: var(--verde-escuro); text-decoration: none; }
 
-        /* Rodapé Final Escuro (Redes Sociais) */
+        /* Rodapé Final */
         footer {
-            background-color: #1a1a1a; color: var(--branco); text-align: center;
+            background-color: var(--verde-vitoria); 
+            color: var(--branco); 
+            text-align: center;
             padding: 20px;
         }
-        .redes-sociais { margin-bottom: 15px; display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; }
-        .redes-sociais a {
-            color: var(--branco); text-decoration: none; font-weight: bold;
-            font-size: 14px; transition: color 0.3s;
-            text-transform: uppercase; letter-spacing: 1px;
-        }
-        .redes-sociais a:hover { color: var(--verde-vitoria); }
     </style>
 </head>
 <body>
 
     <header>
         <div class="logo-container" onclick="mostrarPagina('inicio')">
-            <img src="vfc_logo.png" alt="Vitória FC Logo">
-            <h1>VITÓRIA FC</h1>
+            <!-- Nome do Ícone Corrigido Aqui -->
+            <img src="vfc_ico.png" alt="Vitória FC Logo">
+            <h1>Vitória Futebol Clube</h1>
         </div>
-        <nav>
-            <ul>
-                <li><button onclick="mostrarPagina('inicio')">Início</button></li>
-                <li><button onclick="mostrarPagina('equipa')">Equipa</button></li>
-                <li><button onclick="mostrarPagina('socios')">Sócios</button></li>
-                <li><button onclick="mostrarPagina('loja')">Loja</button></li>
-                <li><button onclick="mostrarPagina('historia')">História</button></li>
-            </ul>
-        </nav>
+        
+        <div class="header-direita">
+            <!-- Redes Sociais com ícones circulares no topo -->
+            <div class="redes-sociais-topo">
+                <a href="https://www.facebook.com/vitoriafutebolclubeoficial" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/vitoriafutebolclubeoficial" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://x.com/oficialvfc" target="_blank" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://www.tiktok.com/@vfc1910" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.youtube.com/vitoriafutebolclube" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.linkedin.com/company/vitoriafutebolclubeoficial/?originalSubdomain=pt" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+
+            <!-- Menu de Navegação -->
+            <nav>
+                <ul>
+                    <li><button onclick="mostrarPagina('inicio')">Início</button></li>
+                    <li><button onclick="mostrarPagina('equipa')">Equipa</button></li>
+                    <li><button onclick="mostrarPagina('socios')">Sócios</button></li>
+                    <li><button onclick="mostrarPagina('loja')">Loja</button></li>
+                    <li><button onclick="mostrarPagina('historia')">História</button></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <!-- PÁGINA INICIAL -->
@@ -306,7 +362,7 @@
 
     <!-- PÁGINA SÓCIOS -->
     <div id="socios" class="pagina">
-        <img src="https://media-manager.noticiasaominuto.com/1280/naom_5878eb73cdb91.webp?crop_params=eyJsYW5kc2NhcGUiOnsiY3JvcFdpZHRoIjozODI3LCJjcm9wSGVpZ2h0IjoyMTUzLCJjcm9wWCI6MCwiY3JvcFkiOjUzfSwicG9ydHJhaXQiOnsiY3JvcFdpZHRoIjoxNDEzLCJjcm9wSGVpZ2h0IjoyNTEyLCJjcm9wWCI6MTA4MywiY3JvcFkiOi0xfX0=" alt="Faz-te Sócio" class="img-hero">
+        <img src="https://media-manager.noticiasaominuto.com/1280/naom_5878eb73cdb91.webp?crop_params=eyJsYW5kc2NhcGUiOnsiY3JvcFdpZHRoIjozODI3LCJjcm9wSGVpZ2h0IjoyMTUzLCJjcm9wWCI6MCwiY3JvcFkiOjUzfSwicG9ydHJhaXQiOnsiY3JvcFdpZHRoIjoxNDEzLCJjcm9wSGVpZ2h0IjoyNTEyLCJjcm9wWCI6MTA4MywiY3JvcFkiOi0xfX0=" alt="Faz-te Sócio" class="img-hero" style="border-bottom: 4px solid var(--verde-vitoria);">
         
         <div class="container">
             <div class="seccao-quotas">
@@ -369,13 +425,6 @@
                         <button class="btn">Adicionar</button>
                     </div>
                 </div>
-
-                <div class="info-quotas">
-                    <h4>Informações</h4>
-                    <p>A campanha terminou, mas ainda te podes juntar a nós.</p>
-                    <p>O teu Cartão Digital de Sócio será enviado por email pela nossa Gestão de Sócios, após validada a inscrição e confirmado o pagamento da quota inicial. Os novos sócios também poderão levantar o respetivo Cartão Físico na Gestão de Sócios no Estádio do Bonfim.</p>
-                    <p>Deverá ser efetuada uma compra individual por cada inscrição de sócio.</p>
-                </div>
             </div>
 
             <div class="cartao">
@@ -420,6 +469,23 @@
                     </div>
                 </form>
             </div>
+
+            <!-- Contactos Exclusivos da Área de Sócios -->
+            <div class="contactos-socios">
+                <div>
+                    <h4>Gestão de Sócios</h4>
+                    <p>265 520 710</p>
+                    <p>966 920 428</p>
+                    <p style="font-weight: bold; text-decoration: underline;">gestao.socios@vfc.pt</p>
+                </div>
+                <div>
+                    <h4>Horário de Atendimento</h4>
+                    <p>Segunda a Sexta-Feira</p>
+                    <p>09h00 às 12h30</p>
+                    <p>14h30 às 18h00</p>
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -430,62 +496,57 @@
                 <h3 style="margin-bottom: 30px;">Loja Oficial do Vitória FC</h3>
                 <div class="grid-loja">
                     
-                    <!-- Produto 1 -->
                     <div class="produto">
                         <div>
                             <img src="https://loja.vfc.pt/cdn/shop/files/DSC09770.jpg?v=1773451297&width=1200" alt="Camisola Jogo Oficial">
                             <h4>Camisola Jogo Oficial</h4>
                         </div>
                         <div>
-                            <p style="font-weight: bold; color: var(--verde-vitoria); font-size: 20px;">45,00 €</p>
+                            <p style="font-weight: bold; color: var(--verde-escuro); font-size: 20px;">45,00 €</p>
                             <a href="https://loja.vfc.pt/" target="_blank" class="btn" style="width: 100%; box-sizing: border-box;">Comprar</a>
                         </div>
                     </div>
                     
-                    <!-- Produto 2 -->
                     <div class="produto">
                         <div>
                             <img src="https://loja.vfc.pt/cdn/shop/files/DSC00205.jpg?v=1773451722&width=1200" alt="Camisola Alternativa">
                             <h4>Camisola Alternativa</h4>
                         </div>
                         <div>
-                            <p style="font-weight: bold; color: var(--verde-vitoria); font-size: 20px;">45,00 €</p>
+                            <p style="font-weight: bold; color: var(--verde-escuro); font-size: 20px;">45,00 €</p>
                             <a href="https://loja.vfc.pt/" target="_blank" class="btn" style="width: 100%; box-sizing: border-box;">Comprar</a>
                         </div>
                     </div>
 
-                    <!-- Produto 3 -->
                     <div class="produto">
                         <div>
                             <img src="https://loja.vfc.pt/cdn/shop/files/CCHero.jpg?v=1773514850&width=1920" alt="Camisola Cardoso">
                             <h4>Camisola Cardoso</h4>
                         </div>
                         <div>
-                            <p style="font-weight: bold; color: var(--verde-vitoria); font-size: 20px;">45,00 €</p>
+                            <p style="font-weight: bold; color: var(--verde-escuro); font-size: 20px;">45,00 €</p>
                             <a href="https://loja.vfc.pt/" target="_blank" class="btn" style="width: 100%; box-sizing: border-box;">Comprar</a>
                         </div>
                     </div>
 
-                    <!-- Produto 4 -->
                     <div class="produto">
                         <div>
                             <img src="https://loja.vfc.pt/cdn/shop/files/Hero2_b4a3e71d-5985-4524-a561-9784d9bad0c2.jpg?v=1773421205&width=1200" alt="Camisola Epoca 25/26 - Assinada">
                             <h4>Camisola Época 25/26<br><small>(Assinada)</small></h4>
                         </div>
                         <div>
-                            <p style="font-weight: bold; color: var(--verde-vitoria); font-size: 20px;">60,00 €</p>
+                            <p style="font-weight: bold; color: var(--verde-escuro); font-size: 20px;">60,00 €</p>
                             <a href="https://loja.vfc.pt/" target="_blank" class="btn" style="width: 100%; box-sizing: border-box;">Comprar</a>
                         </div>
                     </div>
 
-                    <!-- Cartão de Visita Geral -->
-                    <div class="produto" style="background: #fafafa; border-radius: 8px;">
+                    <div class="produto" style="background: var(--fundo-bege); border-color: transparent;">
                         <div>
-                            <h4 style="color: #666; margin-top: 20px;">Descobre toda a nossa coleção!</h4>
-                            <p style="color: #888;">Cachecóis, casacos, merchandising e muito mais.</p>
+                            <h4 style="color: var(--verde-escuro); margin-top: 20px; text-transform: uppercase;">Descobre toda a nossa coleção!</h4>
+                            <p style="color: #666;">Cachecóis, casacos, merchandising e muito mais.</p>
                         </div>
                         <div>
-                            <a href="https://loja.vfc.pt/" target="_blank" class="btn" style="background-color: #333; width: 100%; box-sizing: border-box;">Visitar loja.vfc.pt</a>
+                            <a href="https://loja.vfc.pt/" target="_blank" class="btn" style="background-color: var(--verde-escuro); width: 100%; box-sizing: border-box;">Visitar loja.vfc.pt</a>
                         </div>
                     </div>
                     
@@ -532,28 +593,8 @@
         </div>
     </div>
 
-    <!-- RODAPÉ DE CONTACTOS E LINKS -->
+    <!-- RODAPÉ LIMPO (Apenas Links Legais) -->
     <div class="footer-info">
-        <div>
-            <h5>Gestão de Sócios</h5>
-            <p>265 520 710</p>
-            <p>966 920 428</p>
-            <p style="color: var(--verde-vitoria);">gestao.socios@vfc.pt</p>
-        </div>
-        <div>
-            <h5>Horário</h5>
-            <p>Segunda a Sexta-Feira</p>
-            <p>9h00 às 12h30</p>
-            <p>14h30 às 18h00</p>
-        </div>
-        <div>
-            <h5>Ginástica</h5>
-            <p>265 220 364</p>
-            <h5 style="margin-top: 10px;">Futebol Formação</h5>
-            <p>265 523 623</p>
-        </div>
-        
-        <!-- Bloco de Links Legais Dividido em Duas Colunas -->
         <div class="bloco-links-duplos">
             <div class="links-legais">
                 <a href="#">Política de Privacidade</a>
@@ -563,23 +604,15 @@
             <div class="links-legais">
                 <a href="#">Termos e Condições</a>
                 <a href="#">Livro de Reclamações</a>
-                <p style="margin-top: 5px; color: var(--verde-vitoria); font-weight: bold;">dpo@vfc.pt</p>
+                <p style="margin-top: 10px; color: var(--verde-vitoria); font-weight: bold;">dpo@vfc.pt</p>
             </div>
         </div>
     </div>
 
-    <!-- RODAPÉ FINAL (Com todas as Redes Sociais) -->
+    <!-- RODAPÉ FINAL -->
     <footer>
-        <div class="redes-sociais">
-            <a href="https://www.facebook.com/vitoriafutebolclubeoficial" target="_blank">Facebook</a>
-            <a href="https://www.instagram.com/vitoriafutebolclubeoficial" target="_blank">Instagram</a>
-            <a href="https://x.com/oficialvfc" target="_blank">X</a>
-            <a href="https://www.tiktok.com/@vfc1910" target="_blank">TikTok</a>
-            <a href="https://www.youtube.com/vitoriafutebolclube" target="_blank">YouTube</a>
-            <a href="https://www.linkedin.com/company/vitoriafutebolclubeoficial/?originalSubdomain=pt" target="_blank">LinkedIn</a>
-        </div>
-        <p>&copy; 2026 Vitória Futebol Clube. Todos os direitos reservados.</p>
-        <p style="font-size: 12px; color: #777;">Mockup interativo desenvolvido para demonstração.</p>
+        <p style="margin: 0; font-size: 14px;">&copy; 2026 Vitória Futebol Clube. Todos os direitos reservados.</p>
+        <p style="margin: 5px 0 0 0; font-size: 12px; color: rgba(255,255,255,0.7);">Mockup interativo desenvolvido para demonstração.</p>
     </footer>
 
     <!-- Lógica de Navegação -->
