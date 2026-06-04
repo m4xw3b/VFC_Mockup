@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vitória Futebol Clube - Mockup Completo</title>
+    
+    <!-- Ícone do Separador (Favicon) -->
+    <link rel="icon" href="https://socio.vfc.pt/wp-content/uploads/2025/10/cropped-logo-32x32.png" sizes="32x32">
+    
+    <style>
+        /* Estilos Base e Variáveis */
+        :root {
+            --verde-vitoria: #3c7d42;
+            --branco: #FFFFFF;
+            --cinza-claro: #F4F4F4;
+            --fundo-bege: #f3efe6;
+            --texto-escuro: #333333;
+            --verde-escuro: #2a5a2e;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--cinza-claro);
+            color: var(--texto-escuro);
+            line-height: 1.6;
+        }
+
+        /* Cabeçalho */
+        header {
+            background-color: var(--branco);
+            color: var(--texto-escuro);
+            padding: 10px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+        }
+
+        .logo-container img { max-height: 50px; width: auto; }
+        .logo-container h1 { margin: 0; font-size: 20px; color: var(--verde-vitoria); }
+
+        nav ul {
+            list-style: none; margin: 0; padding: 0; display: flex; gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav button {
+            background: none; border: none; color: var(--texto-escuro);
+            font-weight: bold; text-transform: uppercase; font-size: 14px;
+            cursor: pointer; transition: color 0.3s; font-family: inherit;
+        }
+
+        nav button:hover, nav button.ativo { color: var(--verde-vitoria); }
+
+        /* Estrutura das Páginas */
+        .pagina { display: none; animation: fadeIn 0.5s ease; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .container {
+            max-width: 1200px; margin: 40px auto; padding: 0 20px;
+        }
+
+        .grid-layout {
+            display: grid; grid-template-columns: 2fr 1fr; gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .grid-layout { grid-template-columns: 1fr; }
+            header { flex-direction: column; gap: 15px; padding: 15px; }
+        }
+
+        .cartao {
+            background-color: var(--branco); padding: 30px; border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 20px;
+        }
+
+        .cartao h3 {
+            color: var(--verde-vitoria); margin-top: 0; border-bottom: 2px solid var(--verde-vitoria);
+            padding-bottom: 10px; text-transform: uppercase;
+        }
+        
+        .cartao h4 {
+            color: var(--texto-escuro); margin-bottom: 5px; font-size: 18px;
+        }
+
+        .img-fluida { width: 100%; border-radius: 6px; margin-top: 10px; }
+        .img-hero { width: 100%; max-height: 500px; object-fit: cover; }
+        .img-destaque-inicio { width: 100%; border-radius: 8px; margin-bottom: 30px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+
+        /* Galeria de Fotos */
+        .galeria-fotos {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-top: 20px;
+        }
+        .galeria-fotos img {
+            width: 100%; height: 180px; object-fit: cover; border-radius: 6px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;
+        }
+        .galeria-fotos img:hover { transform: scale(1.03); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+
+        /* Integração Vídeo YouTube Responsivo */
+        .video-container {
+            position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
+            margin-top: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            background-color: #000;
+        }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+        /* Botões */
+        .btn {
+            background-color: var(--verde-vitoria); color: white; border: none;
+            padding: 12px 25px; text-decoration: none; border-radius: 5px;
+            font-weight: bold; cursor: pointer; display: inline-block; text-align: center; transition: 0.3s;
+        }
+        .btn:hover { background-color: var(--verde-escuro); }
+
+        /* Estilos da Página Sócios */
+        .seccao-quotas {
+            background-color: var(--fundo-bege);
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+        .seccao-quotas h3 {
+            color: var(--verde-vitoria);
+            margin: 0 0 5px 0;
+            border: none;
+            text-transform: none;
+            font-size: 22px;
+            text-align: center;
+        }
+        .seccao-quotas > p.subtitulo {
+            color: var(--verde-vitoria);
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .vantagens-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 40px; text-align: left;
+            margin-bottom: 40px; color: var(--verde-escuro);
+        }
+        @media (max-width: 768px) { .vantagens-grid { grid-template-columns: 1fr; } }
+        
+        .vantagens-grid h4 {
+            color: var(--verde-vitoria); text-transform: uppercase;
+            font-size: 16px; margin-bottom: 15px;
+        }
+        .vantagens-coluna p, .vantagens-coluna li { margin-bottom: 12px; font-size: 15px; }
+
+        .slogan-socios {
+            text-align: center; color: var(--verde-vitoria); font-size: 22px;
+            font-weight: bold; margin: 40px 0; line-height: 1.4;
+        }
+
+        .grid-quotas {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px; margin-bottom: 40px;
+        }
+        .quota-item {
+            display: flex; flex-direction: column; align-items: center;
+            justify-content: space-between; text-align: center;
+        }
+        .quota-item h4 { color: var(--verde-vitoria); margin-bottom: 5px; font-size: 16px; }
+        .quota-item p { font-weight: bold; font-size: 18px; color: var(--texto-escuro); margin: 10px 0 15px 0; }
+        
+        .info-quotas { text-align: left; max-width: 800px; margin: 0 auto; color: var(--verde-vitoria); }
+        .info-quotas h4 { text-align: center; color: var(--verde-vitoria); margin-bottom: 20px; font-size: 20px; }
+        .info-quotas p { color: var(--verde-escuro); margin-bottom: 15px; }
+
+        /* Formulário de Sócio */
+        .form-proposta { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        @media (max-width: 768px) { .form-proposta { grid-template-columns: 1fr; } }
+        .form-group { display: flex; flex-direction: column; text-align: left; }
+        .form-group.full-width { grid-column: 1 / -1; }
+        .form-group label { font-weight: bold; margin-bottom: 8px; color: var(--texto-escuro); }
+        .form-group input, .form-group select, .form-group textarea {
+            padding: 12px; border: 1px solid #ccc; border-radius: 4px;
+            font-family: inherit; font-size: 16px;
+        }
+        .form-group input:focus, .form-group select:focus {
+            outline: none; border-color: var(--verde-vitoria);
+            box-shadow: 0 0 5px rgba(60, 125, 66, 0.3);
+        }
+
+        /* Grid da Loja */
+        .grid-loja { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+        .produto { text-align: center; padding: 15px; display: flex; flex-direction: column; justify-content: space-between; }
+        .produto img { max-width: 100%; border-radius: 8px; border: 1px solid #ddd; margin-bottom: 15px; }
+        .produto h4 { margin: 0 0 10px 0; font-size: 16px; }
+
+        /* Rodapé de Informações */
+        .footer-info {
+            background-color: var(--fundo-bege);
+            color: var(--verde-escuro);
+            padding: 25px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            text-align: center;
+            font-size: 14px;
+            margin-top: 40px;
+        }
+        .footer-info h5 {
+            color: var(--verde-vitoria);
+            font-size: 15px;
+            margin-bottom: 5px;
+            margin-top: 0;
+        }
+        .footer-info p { margin: 2px 0; }
+        
+        .links-legais {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .links-legais a {
+            color: var(--verde-vitoria);
+            text-decoration: underline;
+            margin: 0;
+        }
+        .links-legais a:hover { color: var(--verde-escuro); }
+
+        /* Rodapé Final Escuro (Redes Sociais) */
+        footer {
+            background-color: #1a1a1a; color: var(--branco); text-align: center;
+            padding: 20px;
+        }
+        .redes-sociais { margin-bottom: 15px; display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; }
+        .redes-sociais a {
+            color: var(--branco); text-decoration: none; font-weight: bold;
+            font-size: 14px; transition: color 0.3s;
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+        .redes-sociais a:hover { color: var(--verde-vitoria); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container" onclick="mostrarPagina('inicio')">
+            <img src="https://socio.vfc.pt/wp-content/uploads/2025/10/LOGO-2-scaled-120-120.png" alt="Vitória FC Logo">
+            <h1>VITÓRIA FC</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><button onclick="mostrarPagina('inicio')">Início</button></li>
+                <li><button onclick="mostrarPagina('equipa')">Equipa</button></li>
+                <li><button onclick="mostrarPagina('socios')">Sócios</button></li>
+                <li><button onclick="mostrarPagina('loja')">Loja</button></li>
+                <li><button onclick="mostrarPagina('historia')">História</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- PÁGINA INICIAL -->
+    <div id="inicio" class="pagina">
+        <div class="container">
+            <img src="https://scontent-lis1-1.xx.fbcdn.net/v/t39.30808-6/618366567_1470737938387221_1232806290731907406_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=AL2AwXUUY8gQ7kNvwHO0UW7&_nc_oc=Ado7NlLKztRXV4UR7gSNf-cIZ6Txp_28seEAnECdteJqM8L1udFId7vTbIRCtMcCXDY&_nc_zt=23&_nc_ht=scontent-lis1-1.xx&_nc_gid=Jq9ulPqwI-URYHEQrdesvw&_nc_ss=7c2a8&oh=00_Af8ghtBgn0OYAv6SaRgzvr4E8ITP6tJ7u70c_dD4WxWW0Q&oe=6A27215D" alt="Destaque Vitória FC" class="img-destaque-inicio">
+            <div class="grid-layout">
+                <main>
+                    <div class="cartao">
+                        <h3>Último Jogo</h3>
+                        <h4>Grande exibição termina em goleada por 4-0!</h4>
+                        <p>O Vitória garantiu um resultado expressivo com uma exibição sólida no Bonfim. Fica com os melhores momentos vividos dentro de campo e nas bancadas:</p>
+                        <div class="galeria-fotos">
+                            <img src="https://scontent-lis1-1.xx.fbcdn.net/v/t39.30808-6/713144814_1591782569616090_6027225083310954486_n.jpg?stp=dst-jpg_s1080x2048_tt6&_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_ohc=fFANntN7gH4Q7kNvwEyyRCd&_nc_oc=AdonaWcgQ-1X-JXXSMQSSnO63vVbF7RfkEaIuEa5gnHCqK-eujFMx2Vj5m5dOmebDQ4&_nc_zt=23&_nc_ht=scontent-lis1-1.xx&_nc_gid=Cm_uW3hTM708JAgHGcJSHQ&_nc_ss=7c2a8&oh=00_Af95E5kuaiBKZ6U8caw4Tx4QzjSb9UaqkmaSVZDapqLVlg&oe=6A27439B" alt="Celebração">
+                            <img src="https://scontent-lis1-1.xx.fbcdn.net/v/t39.30808-6/710742286_1595203449274002_4007055165291032040_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_ohc=mlWos4odzYgQ7kNvwG9eaNn&_nc_oc=Adr8qDF2CSYOVMGdSXkbtoL0QVEnlYsAHLMZhdss7bZyw4DrB3LtMwZXNeh_gXx5_7A&_nc_zt=23&_nc_ht=scontent-lis1-1.xx&_nc_gid=vA-PvasVghJCd-wjpudMfQ&_nc_ss=7c2a8&oh=00_Af_bOXasg0xPASoszOAxUc8IYsuF1EMlhHtxwhd97NlGBw&oe=6A27113B" alt="Ação no Jogo 1">
+                            <img src="https://scontent-lis1-1.xx.fbcdn.net/v/t39.30808-6/710469902_1595203569273990_2365947725263319548_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_ohc=kCWAjA-feHcQ7kNvwEYOCJf&_nc_oc=AdqaBPVrsDj0WyOq-IOfS2Lqzo8G3MSNRaTvoI_inpof8E2cjIhF-jJUp_dX6H8WBfo&_nc_zt=23&_nc_ht=scontent-lis1-1.xx&_nc_gid=IROZkKGi8kweVcL4m0UqrA&_nc_ss=7c2a8&oh=00_Af9YiI2ud3d6ZhBKFUR7UT2gwSaXfrvE3UiFRcyGWAwlCw&oe=6A2717AD" alt="Ação no Jogo 2">
+                            <img src="https://scontent-lis1-1.xx.fbcdn.net/v/t39.30808-6/710782253_1595203532607327_9107577752526233182_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_ohc=J1Xa8rd7u68Q7kNvwExhCDx&_nc_oc=AdpgxEgaXsezkxRFXq-pzEyJs1ecEcaEQWfIp0cCh5b4z5NfwlFxK1AkD-5deKQgzKU&_nc_zt=23&_nc_ht=scontent-lis1-1.xx&_nc_gid=lPmIkMe82h2MdLyxlaajbQ&_nc_ss=7c2a8&oh=00_Af9dpyR0-V_EHnFu1tLEydKnsdAMgp-sNVF4N7APkmdlCQ&oe=6A2716EB" alt="Ação no Jogo 3">
+                            <img src="https://scontent-lis1-1.xx.fbcdn.net/v/t39.30808-6/710653980_1595203382607342_5171010861625879236_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=4DbIzDcGTZQQ7kNvwGkV49f&_nc_oc=Adp2tKhylL7WBtM3V8fIR8S6n9q67FHreuT1xUgJwjPiDzh1yTUBCgTZEYR3rlyOgT4&_nc_zt=23&_nc_ht=scontent-lis1-1.xx&_nc_gid=s3kryUVEy1l_C-dhm565Yg&_nc_ss=7c2a8&oh=00_Af_61a1hWa9FLPRK6YVxuCos09c-cz63druwju9k6LsZuQ&oe=6A2716C9" alt="Bancadas e Adeptos">
+                            <!-- Nova Imagem Adicionada -->
+                            <img src="https://scontent-lis1-1.xx.fbcdn.net/v/t39.30808-6/710799449_1595203479273999_1782470282173962135_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_ohc=MxK4Hmgj51gQ7kNvwFfYKxC&_nc_oc=Adq0K4AV5l7UIlJy-wMevFZEmzoCOEisrNBWfSHROu2Ta1f7KFklu1zSp69sO4zrJ-Q&_nc_zt=23&_nc_ht=scontent-lis1-1.xx&_nc_gid=DVPH5SHBwHuE5Ir6lX8Ylg&_nc_ss=7c2a8&oh=00_Af-X6kZ-Juae0WZ0lsdUoZRDN5EBqAXhHkQhB425fGm-mQ&oe=6A271A9F" alt="Mais uma ação de jogo">
+                        </div>
+                    </div>
+                </main>
+                <aside>
+                    <div class="cartao">
+                        <h3>Próximo Jogo</h3>
+                        <img class="img-fluida" src="https://scontent-lis1-1.xx.fbcdn.net/v/t39.30808-6/710799665_1594957189298628_3355619738965299935_n.jpg?stp=dst-jpg_s1080x2048_tt6&_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=qylnfeqG8g0Q7kNvwHu7nLf&_nc_oc=AdoX4K9HEqbPRiXV9PCdrCsQSxZ4RZGlqkWVhaHAgk5X8BSBVu2AmjJCGySf3ykLNQw&_nc_zt=23&_nc_ht=scontent-lis1-1.xx&_nc_gid=_zRBM945aJchFzoeDujkHA&_nc_ss=7c2a8&oh=00_Af9NpglmS_mHmDiY38h5IfpOiQ2DlxMKB5fu5tj90Y9ZxA&oe=6A2720E5" alt="Cartaz Próximo Jogo">
+                        <button class="btn" style="width: 100%; margin-top: 15px;">Comprar Bilhete</button>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+
+    <!-- PÁGINA SÓCIOS -->
+    <div id="socios" class="pagina">
+        <img src="https://media-manager.noticiasaominuto.com/1280/naom_5878eb73cdb91.webp?crop_params=eyJsYW5kc2NhcGUiOnsiY3JvcFdpZHRoIjozODI3LCJjcm9wSGVpZ2h0IjoyMTUzLCJjcm9wWCI6MCwiY3JvcFkiOjUzfSwicG9ydHJhaXQiOnsiY3JvcFdpZHRoIjoxNDEzLCJjcm9wSGVpZ2h0IjoyNTEyLCJjcm9wWCI6MTA4MywiY3JvcFkiOi0xfX0=" alt="Faz-te Sócio" class="img-hero">
+        
+        <div class="container">
+            <div class="seccao-quotas">
+                <div class="vantagens-grid">
+                    <div class="vantagens-coluna">
+                        <h4>Vantagens de Ser Sócio</h4>
+                        <p><strong>Descontos</strong><br>10% de desconto na Loja do Vitória (física e online).<br>Descontos em empresas parceiras – poupa nas tuas compras com o cartão de sócio.</p>
+                        <p><strong>Bilheteira Online</strong><br>Compra bilhetes e paga quotas através da plataforma SMARTFAN, de forma fácil e segura.</p>
+                    </div>
+                    <div class="vantagens-coluna">
+                        <h4>Vantagens no Clube</h4>
+                        <ul style="list-style-type: none; padding: 0; margin: 0;">
+                            <li>Direito de voto nas decisões do clube (maiores de 16 anos).</li>
+                            <li>Bilhetes mais baratos para jogos em casa.</li>
+                            <li>Acesso <strong>exclusivo</strong> à compra de Lugar Anual no Estádio do Bonfim.</li>
+                            <li>Distinções honoríficas aos 25, 50 e 75 anos de associado.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="slogan-socios">
+                    Faz-te sócio do Vitória e ajuda-nos a honrar a sua história.<br>
+                    Vitória a vitória, rumo à Primeira.
+                </div>
+
+                <hr style="border-top: 1px solid #ccc; margin: 40px 0; opacity: 0.5;">
+
+                <h3>Escolhe a quota mensal pretendida</h3>
+                <p class="subtitulo">Deverá ser efetuada uma compra individual por cada inscrição de sócio.</p>
+                
+                <div class="grid-quotas">
+                    <div class="quota-item">
+                        <h4>Quota Bancada Coberta</h4>
+                        <p>10,00 €</p>
+                        <button class="btn">Adicionar</button>
+                    </div>
+                    <div class="quota-item">
+                        <h4>Quota de Empresa</h4>
+                        <p>10,00 €</p>
+                        <button class="btn">Adicionar</button>
+                    </div>
+                    <div class="quota-item">
+                        <h4>Quota Bancada Descoberta</h4>
+                        <p>8,50 €</p>
+                        <button class="btn">Adicionar</button>
+                    </div>
+                    <div class="quota-item">
+                        <h4>Quota Bancada Lateral</h4>
+                        <p>6,50 €</p>
+                        <button class="btn">Adicionar</button>
+                    </div>
+                    <div class="quota-item">
+                        <h4>Quota de Menor (16 a 18 anos)</h4>
+                        <p>3,50 €</p>
+                        <button class="btn">Adicionar</button>
+                    </div>
+                    <div class="quota-item">
+                        <h4>Quota de Menor (até 15 anos)</h4>
+                        <p>1,50 €</p>
+                        <button class="btn">Adicionar</button>
+                    </div>
+                </div>
+
+                <div class="info-quotas">
+                    <h4>Informações</h4>
+                    <p>A campanha terminou, mas ainda te podes juntar a nós.</p>
+                    <p>O teu Cartão Digital de Sócio será enviado por email pela nossa Gestão de Sócios, após validada a inscrição e confirmado o pagamento da quota inicial. Os novos sócios também poderão levantar o respetivo Cartão Físico na Gestão de Sócios no Estádio do Bonfim.</p>
+                    <p>Deverá ser efetuada uma compra individual por cada inscrição de sócio.</p>
+                </div>
+            </div>
+
+            <div class="cartao">
+                <h3 style="text-align: center; margin-bottom: 25px;">Preencher Proposta de Sócio</h3>
+                <form onsubmit="event.preventDefault(); alert('Isto é apenas um mockup. Os dados não foram enviados.');">
+                    <div class="form-proposta">
+                        <div class="form-group full-width">
+                            <label for="nome">Nome Completo *</label>
+                            <input type="text" id="nome" required placeholder="Insere o teu nome completo">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail *</label>
+                            <input type="email" id="email" required placeholder="exemplo@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="telemovel">Telemóvel *</label>
+                            <input type="tel" id="telemovel" required placeholder="912 345 678">
+                        </div>
+                        <div class="form-group">
+                            <label for="nascimento">Data de Nascimento *</label>
+                            <input type="date" id="nascimento" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="tipo_quota">Tipo de Quota Pretendida *</label>
+                            <select id="tipo_quota" required>
+                                <option value="" disabled selected>Seleciona uma opção...</option>
+                                <option value="coberta">Quota Bancada Coberta (10,00 €)</option>
+                                <option value="empresa">Quota de Empresa (10,00 €)</option>
+                                <option value="descoberta">Quota Bancada Descoberta (8,50 €)</option>
+                                <option value="lateral">Quota Bancada Lateral (6,50 €)</option>
+                                <option value="menor16_18">Quota de Menor (16 a 18 anos) (3,50 €)</option>
+                                <option value="menorat15">Quota de Menor (até 15 anos) (1,50 €)</option>
+                            </select>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="morada">Morada Completa</label>
+                            <input type="text" id="morada" placeholder="Rua, Número, Código Postal e Localidade">
+                        </div>
+                        <div class="form-group full-width" style="text-align: center; margin-top: 15px;">
+                            <button type="submit" class="btn" style="padding: 15px 40px; font-size: 18px;">Enviar Proposta de Sócio</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- PÁGINA LOJA -->
+    <div id="loja" class="pagina">
+        <div class="container">
+            <div class="cartao">
+                <h3 style="margin-bottom: 30px;">Loja Oficial do Vitória FC</h3>
+                <div class="grid-loja">
+                    
+                    <!-- Produto 1 -->
+                    <div class="produto">
+                        <div>
+                            <img src="https://loja.vfc.pt/cdn/shop/files/DSC09770.jpg?v=1773451297&width=1200" alt="Camisola Jogo Oficial">
+                            <h4>Camisola Jogo Oficial</h4>
+                        </div>
+                        <div>
+                            <p style="font-weight: bold; color: var(--verde-vitoria); font-size: 20px;">45,00 €</p>
+                            <a href="https://loja.vfc.pt/" target="_blank" class="btn" style="width: 100%; box-sizing: border-box;">Comprar</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Produto 2 -->
+                    <div class="produto">
+                        <div>
+                            <img src="https://loja.vfc.pt/cdn/shop/files/DSC00205.jpg?v=1773451722&width=1200" alt="Camisola Alternativa">
+                            <h4>Camisola Alternativa</h4>
+                        </div>
+                        <div>
+                            <p style="font-weight: bold; color: var(--verde-vitoria); font-size: 20px;">45,00 €</p>
+                            <a href="https://loja.vfc.pt/" target="_blank" class="btn" style="width: 100%; box-sizing: border-box;">Comprar</a>
+                        </div>
+                    </div>
+
+                    <!-- Produto 3 -->
+                    <div class="produto">
+                        <div>
+                            <img src="https://loja.vfc.pt/cdn/shop/files/CCHero.jpg?v=1773514850&width=1920" alt="Camisola Cardoso">
+                            <h4>Camisola Cardoso</h4>
+                        </div>
+                        <div>
+                            <p style="font-weight: bold; color: var(--verde-vitoria); font-size: 20px;">45,00 €</p>
+                            <a href="https://loja.vfc.pt/" target="_blank" class="btn" style="width: 100%; box-sizing: border-box;">Comprar</a>
+                        </div>
+                    </div>
+
+                    <!-- Produto 4 -->
+                    <div class="produto">
+                        <div>
+                            <img src="https://loja.vfc.pt/cdn/shop/files/Hero2_b4a3e71d-5985-4524-a561-9784d9bad0c2.jpg?v=1773421205&width=1200" alt="Camisola Epoca 25/26 - Assinada">
+                            <h4>Camisola Época 25/26<br><small>(Assinada)</small></h4>
+                        </div>
+                        <div>
+                            <p style="font-weight: bold; color: var(--verde-vitoria); font-size: 20px;">60,00 €</p>
+                            <a href="https://loja.vfc.pt/" target="_blank" class="btn" style="width: 100%; box-sizing: border-box;">Comprar</a>
+                        </div>
+                    </div>
+
+                    <!-- Cartão de Visita Geral -->
+                    <div class="produto" style="background: #fafafa; border-radius: 8px;">
+                        <div>
+                            <h4 style="color: #666; margin-top: 20px;">Descobre toda a nossa coleção!</h4>
+                            <p style="color: #888;">Cachecóis, casacos, merchandising e muito mais.</p>
+                        </div>
+                        <div>
+                            <a href="https://loja.vfc.pt/" target="_blank" class="btn" style="background-color: #333; width: 100%; box-sizing: border-box;">Visitar loja.vfc.pt</a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PÁGINA EQUIPA -->
+    <div id="equipa" class="pagina">
+        <div class="container">
+            <div class="cartao">
+                <h3>Plantel Principal</h3>
+                <p>Aqui será apresentada a lista completa de jogadores, equipa técnica e staff médico.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PÁGINA HISTÓRIA -->
+    <div id="historia" class="pagina">
+        <div class="container">
+            <div class="cartao">
+                <h3>História e Palmarés</h3>
+                <p>O <strong>Vitória Futebol Clube</strong>, fundado a 20 de novembro de 1910, é um dos clubes mais históricos do futebol português. O emblema sadino viveu a sua "década de ouro" nos anos 60 e 70, e ostenta no seu palmarés troféus de enorme prestígio a nível nacional.</p>
+                <h4>Fundação e Primeiros Anos</h4>
+                <p>O Vitória nasceu a partir da união de três equipas de Setúbal: o Bonfim Futebol Clube, o Sporting Club Setubalense e o Sport Clube Académico. A 5 de maio de 1911, numa Assembleia Geral, o jornalista Joaquim Correia da Costa propôs a designação oficial de <em>Vitória Foot-ball Club</em>. Inicialmente, o clube jogou no Campo dos Arcos, transitando mais tarde para a sua emblemática casa: o <strong>Estádio do Bonfim</strong>, inaugurado em 1962.</p>
+                <h4>A Década de Ouro (Anos 60 e 70)</h4>
+                <ul>
+                    <li><strong>Glória Europeia:</strong> Sob o comando de lendas como José Maria Pedroto, o Vitória fez campanhas brilhantes na Taça UEFA e na Taça das Feiras, eliminando gigantes europeus como o poderoso Liverpool (em 1969).</li>
+                    <li><strong>Reconhecimento:</strong> O clube chegou a alcançar um brilhante 2º lugar no campeonato nacional e formou talentos naturais da região, contrariando a hegemonia de clubes de outras cidades.</li>
+                </ul>
+                <h4>Troféus Nacionais</h4>
+                <ul>
+                    <li><strong>Taças de Portugal (3):</strong> O Vitória levantou o troféu em 1964-1965 (frente ao Benfica), 1966-1967 (frente à Académica) e mais tarde em 2004-2005 (novamente frente ao Benfica).</li>
+                    <li><strong>Taça da Liga (1):</strong> Conquistada na época de 2007-2008, após bater o Sporting Clube de Portugal na primeira final da história desta competição.</li>
+                </ul>
+                <h4>A Conquista da 3ª Taça de Portugal (2004/2005)</h4>
+                <p>Relembre o momento histórico em que o Vitória venceu a final da Taça de Portugal no Estádio Nacional:</p>
+                
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/f1qiaVXWChg" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- RODAPÉ DE CONTACTOS E LINKS -->
+    <div class="footer-info">
+        <div>
+            <h5>Gestão de Sócios</h5>
+            <p>265 520 710</p>
+            <p>966 920 428</p>
+            <p style="color: var(--verde-vitoria);">gestao.socios@vfc.pt</p>
+        </div>
+        <div>
+            <h5>Horário</h5>
+            <p>Segunda a Sexta-Feira</p>
+            <p>9h00 às 12h30</p>
+            <p>14h30 às 18h00</p>
+        </div>
+        <div>
+            <h5>Ginástica</h5>
+            <p>265 220 364</p>
+            <h5 style="margin-top: 10px;">Futebol Formação</h5>
+            <p>265 523 623</p>
+        </div>
+        <div class="links-legais">
+            <a href="#">Política de Privacidade</a>
+            <a href="#">Cookies</a>
+            <a href="#">RGPD</a>
+            <a href="#">Termos e Condições</a>
+            <a href="#">Livro de Reclamações</a>
+            <p style="margin-top: 5px; color: var(--verde-vitoria);">dpo@vfc.pt</p>
+        </div>
+    </div>
+
+    <!-- RODAPÉ FINAL (Com todas as Redes Sociais) -->
+    <footer>
+        <div class="redes-sociais">
+            <a href="https://www.facebook.com/vitoriafutebolclubeoficial" target="_blank">Facebook</a>
+            <a href="https://www.instagram.com/vitoriafutebolclubeoficial" target="_blank">Instagram</a>
+            <a href="https://x.com/oficialvfc" target="_blank">X</a>
+            <a href="https://www.tiktok.com/@vfc1910" target="_blank">TikTok</a>
+            <a href="https://www.youtube.com/vitoriafutebolclube" target="_blank">YouTube</a>
+            <a href="https://www.linkedin.com/company/vitoriafutebolclubeoficial/?originalSubdomain=pt" target="_blank">LinkedIn</a>
+        </div>
+        <p>&copy; 2026 Vitória Futebol Clube. Todos os direitos reservados.</p>
+        <p style="font-size: 12px; color: #777;">Mockup interativo desenvolvido para demonstração.</p>
+    </footer>
+
+    <!-- Lógica de Navegação -->
+    <script>
+        function mostrarPagina(paginaId) {
+            const paginas = document.querySelectorAll('.pagina');
+            paginas.forEach(p => p.style.display = 'none');
+            
+            document.getElementById(paginaId).style.display = 'block';
+            
+            const botoes = document.querySelectorAll('nav button');
+            botoes.forEach(b => b.style.color = 'var(--texto-escuro)');
+            
+            const botaoAtivo = document.querySelector(`nav button[onclick="mostrarPagina('${paginaId}')"]`);
+            if(botaoAtivo) botaoAtivo.style.color = 'var(--verde-vitoria)';
+            
+            window.scrollTo(0, 0);
+        }
+
+        window.onload = () => mostrarPagina('inicio');
+    </script>
+
+</body>
+</html>
