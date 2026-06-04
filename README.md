@@ -64,5 +64,5 @@ Sendo um projeto estático, não requer instalação. Para visualizar localmente
 *(Nota: Garante que as imagens `vfc_logo.png`, `vfc_ico.png` e qualquer outra imagem referenciada estão na mesma pasta que o ficheiro `index.html` para que carreguem corretamente.)*
 
 ---
-**Autor:** Projeto desenvolvido por `[INSERIR O TEU NOME AQUI]`.
+**Autor:** Projeto desenvolvido por `João Fernandes`.
 *Este é um projeto independente e não tem afiliação oficial com o Vitória Futebol Clube.*
