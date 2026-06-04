@@ -222,6 +222,13 @@
         }
         .footer-info p { margin: 2px 0; }
         
+        /* Nova Divisão a Duas Colunas para os Links Legais */
+        .bloco-links-duplos {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            text-align: left;
+        }
         .links-legais {
             display: flex;
             flex-direction: column;
@@ -282,7 +289,6 @@
                             <img src="https://scontent-lis1-1.xx.fbcdn.net/v/t39.30808-6/710469902_1595203569273990_2365947725263319548_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_ohc=kCWAjA-feHcQ7kNvwEYOCJf&_nc_oc=AdqaBPVrsDj0WyOq-IOfS2Lqzo8G3MSNRaTvoI_inpof8E2cjIhF-jJUp_dX6H8WBfo&_nc_zt=23&_nc_ht=scontent-lis1-1.xx&_nc_gid=IROZkKGi8kweVcL4m0UqrA&_nc_ss=7c2a8&oh=00_Af9YiI2ud3d6ZhBKFUR7UT2gwSaXfrvE3UiFRcyGWAwlCw&oe=6A2717AD" alt="Ação no Jogo 2">
                             <img src="https://scontent-lis1-1.xx.fbcdn.net/v/t39.30808-6/710782253_1595203532607327_9107577752526233182_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_ohc=J1Xa8rd7u68Q7kNvwExhCDx&_nc_oc=AdpgxEgaXsezkxRFXq-pzEyJs1ecEcaEQWfIp0cCh5b4z5NfwlFxK1AkD-5deKQgzKU&_nc_zt=23&_nc_ht=scontent-lis1-1.xx&_nc_gid=lPmIkMe82h2MdLyxlaajbQ&_nc_ss=7c2a8&oh=00_Af9dpyR0-V_EHnFu1tLEydKnsdAMgp-sNVF4N7APkmdlCQ&oe=6A2716EB" alt="Ação no Jogo 3">
                             <img src="https://scontent-lis1-1.xx.fbcdn.net/v/t39.30808-6/710653980_1595203382607342_5171010861625879236_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=4DbIzDcGTZQQ7kNvwGkV49f&_nc_oc=Adp2tKhylL7WBtM3V8fIR8S6n9q67FHreuT1xUgJwjPiDzh1yTUBCgTZEYR3rlyOgT4&_nc_zt=23&_nc_ht=scontent-lis1-1.xx&_nc_gid=s3kryUVEy1l_C-dhm565Yg&_nc_ss=7c2a8&oh=00_Af_61a1hWa9FLPRK6YVxuCos09c-cz63druwju9k6LsZuQ&oe=6A2716C9" alt="Bancadas e Adeptos">
-                            <!-- Nova Imagem Adicionada -->
                             <img src="https://scontent-lis1-1.xx.fbcdn.net/v/t39.30808-6/710799449_1595203479273999_1782470282173962135_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_ohc=MxK4Hmgj51gQ7kNvwFfYKxC&_nc_oc=Adq0K4AV5l7UIlJy-wMevFZEmzoCOEisrNBWfSHROu2Ta1f7KFklu1zSp69sO4zrJ-Q&_nc_zt=23&_nc_ht=scontent-lis1-1.xx&_nc_gid=DVPH5SHBwHuE5Ir6lX8Ylg&_nc_ss=7c2a8&oh=00_Af-X6kZ-Juae0WZ0lsdUoZRDN5EBqAXhHkQhB425fGm-mQ&oe=6A271A9F" alt="Mais uma ação de jogo">
                         </div>
                     </div>
@@ -546,13 +552,19 @@
             <h5 style="margin-top: 10px;">Futebol Formação</h5>
             <p>265 523 623</p>
         </div>
-        <div class="links-legais">
-            <a href="#">Política de Privacidade</a>
-            <a href="#">Cookies</a>
-            <a href="#">RGPD</a>
-            <a href="#">Termos e Condições</a>
-            <a href="#">Livro de Reclamações</a>
-            <p style="margin-top: 5px; color: var(--verde-vitoria);">dpo@vfc.pt</p>
+        
+        <!-- Bloco de Links Legais Dividido em Duas Colunas -->
+        <div class="bloco-links-duplos">
+            <div class="links-legais">
+                <a href="#">Política de Privacidade</a>
+                <a href="#">Cookies</a>
+                <a href="#">RGPD</a>
+            </div>
+            <div class="links-legais">
+                <a href="#">Termos e Condições</a>
+                <a href="#">Livro de Reclamações</a>
+                <p style="margin-top: 5px; color: var(--verde-vitoria); font-weight: bold;">dpo@vfc.pt</p>
+            </div>
         </div>
     </div>
 
