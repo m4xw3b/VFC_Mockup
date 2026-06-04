@@ -6,7 +6,7 @@
     <title>Vitória Futebol Clube</title>
     
     <!-- Ícone do Separador (Favicon) -->
-    <link rel="icon" href="vfc_ico.png" sizes="32x32">
+    <link rel="icon" href="vfc_ico.png" type="image/png">
     
     <!-- Biblioteca de Ícones (FontAwesome) para as Redes Sociais -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -16,7 +16,7 @@
         :root {
             --verde-vitoria: #3c7d42;
             --branco: #FFFFFF;
-            --fundo-site: #eef3ef; /* Tom muito suave de verde/cinza para não ficar demasiado branco */
+            --fundo-site: #eef3ef;
             --fundo-bege: #f3efe6;
             --texto-escuro: #333333;
             --verde-escuro: #2a5a2e;
@@ -39,11 +39,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 4px 6px rgba(60, 125, 66, 0.1); /* Sombra ligeiramente esverdeada */
+            box-shadow: 0 4px 6px rgba(60, 125, 66, 0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 3px solid var(--verde-vitoria); /* Linha verde de destaque */
+            border-bottom: 3px solid var(--verde-vitoria);
         }
 
         .logo-container {
@@ -83,7 +83,7 @@
             height: 32px;
             background-color: var(--verde-vitoria);
             color: var(--branco);
-            border-radius: 50%; /* Faz o círculo */
+            border-radius: 50%;
             text-decoration: none;
             font-size: 16px;
             transition: all 0.3s ease;
@@ -134,7 +134,7 @@
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
             margin-bottom: 20px;
-            border-top: 4px solid var(--verde-vitoria); /* Destaque verde nos blocos */
+            border-top: 4px solid var(--verde-vitoria);
         }
 
         .cartao h3 {
@@ -300,8 +300,7 @@
 
     <header>
         <div class="logo-container" onclick="mostrarPagina('inicio')">
-            <!-- Nome do Ícone Corrigido Aqui -->
-            <img src="vfc_ico.png" alt="Vitória FC Logo">
+            <img src="vfc_logo.png" alt="Vitória FC Logo">
             <h1>Vitória Futebol Clube</h1>
         </div>
         
@@ -332,13 +331,14 @@
     <!-- PÁGINA INICIAL -->
     <div id="inicio" class="pagina">
         <div class="container">
-            <img src="https://scontent-lis1-1.xx.fbcdn.net/v/t39.30808-6/618366567_1470737938387221_1232806290731907406_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=AL2AwXUUY8gQ7kNvwHO0UW7&_nc_oc=Ado7NlLKztRXV4UR7gSNf-cIZ6Txp_28seEAnECdteJqM8L1udFId7vTbIRCtMcCXDY&_nc_zt=23&_nc_ht=scontent-lis1-1.xx&_nc_gid=Jq9ulPqwI-URYHEQrdesvw&_nc_ss=7c2a8&oh=00_Af8ghtBgn0OYAv6SaRgzvr4E8ITP6tJ7u70c_dD4WxWW0Q&oe=6A27215D" alt="Destaque Vitória FC" class="img-destaque-inicio">
+            <img src="https://scontent-lis1-1.xx.fbcdn.net/v/t39.30808-6/710638958_1595131365947877_7134195390209212264_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=TO-c8VvV5KgQ7kNvwGUvzQb&_nc_oc=AdpmbaeacJ3sQFVZl2xRAeG77t9CBeGfZWIIYmXhWcatd0dAHAZFfE7p_BUgAm8_lng&_nc_zt=23&_nc_ht=scontent-lis1-1.xx&_nc_gid=XVVtiKchqUNVky9VSd5GNQ&_nc_ss=7b2a8&oh=00_Af_XIgbZFE93JeqVmYxcvgk3Eb8rNYaVMPqUD2NorYYPjg&oe=6A27248C" alt="Destaque Vitória FC" class="img-destaque-inicio">
             <div class="grid-layout">
                 <main>
                     <div class="cartao">
                         <h3>Último Jogo</h3>
-                        <h4>Grande exibição termina em goleada por 4-0!</h4>
-                        <p>O Vitória garantiu um resultado expressivo com uma exibição sólida no Bonfim. Fica com os melhores momentos vividos dentro de campo e nas bancadas:</p>
+                        <h4>Vitória ergue taça de campeão no adeus à I Divisão da AF Setúbal</h4>
+                        <p>O Vitória Futebol Clube concluiu a I Divisão da AF Setúbal de forma irrepreensível. Num Bonfim em festa e com mais de quatro mil espetadores a assistir, os sadinos levantaram o troféu de campeões após uma vitória convincente por 4-0 contra o Fabril do Barreiro. A equipa principal, orientada por Paulo Martins, encerra assim a sua participação na prova de forma invicta, contabilizando 24 vitórias e seis empates ao longo de 30 jornadas.</p>
+                        <p>Os golos da consagração foram apontados por Bruninho (18'), Zé Mário (49'), Leo Chão (55') e pelo veterano Marco Véstia, que selou o resultado aos 90+3'. O dia ficou ainda marcado pelas celebrações do "Dia do Vitoriano", reforçando a forte ligação e a comunhão entre o plantel e os adeptos, num claro sinal de confiança rumo ao regresso ao Campeonato de Portugal.</p>
                         <div class="galeria-fotos">
                             <img src="https://scontent-lis1-1.xx.fbcdn.net/v/t39.30808-6/713144814_1591782569616090_6027225083310954486_n.jpg?stp=dst-jpg_s1080x2048_tt6&_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_ohc=fFANntN7gH4Q7kNvwEyyRCd&_nc_oc=AdonaWcgQ-1X-JXXSMQSSnO63vVbF7RfkEaIuEa5gnHCqK-eujFMx2Vj5m5dOmebDQ4&_nc_zt=23&_nc_ht=scontent-lis1-1.xx&_nc_gid=Cm_uW3hTM708JAgHGcJSHQ&_nc_ss=7c2a8&oh=00_Af95E5kuaiBKZ6U8caw4Tx4QzjSb9UaqkmaSVZDapqLVlg&oe=6A27439B" alt="Celebração">
                             <img src="https://scontent-lis1-1.xx.fbcdn.net/v/t39.30808-6/710742286_1595203449274002_4007055165291032040_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_ohc=mlWos4odzYgQ7kNvwG9eaNn&_nc_oc=Adr8qDF2CSYOVMGdSXkbtoL0QVEnlYsAHLMZhdss7bZyw4DrB3LtMwZXNeh_gXx5_7A&_nc_zt=23&_nc_ht=scontent-lis1-1.xx&_nc_gid=vA-PvasVghJCd-wjpudMfQ&_nc_ss=7c2a8&oh=00_Af_bOXasg0xPASoszOAxUc8IYsuF1EMlhHtxwhd97NlGBw&oe=6A27113B" alt="Ação no Jogo 1">
