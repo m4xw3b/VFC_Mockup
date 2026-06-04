@@ -175,6 +175,13 @@
             font-weight: bold; cursor: pointer; display: inline-block; text-align: center; transition: 0.3s;
         }
         .btn:hover { background-color: var(--verde-escuro); }
+        
+        .btn-link {
+            background: none; border: none; color: var(--verde-vitoria); font-weight: bold;
+            cursor: pointer; padding: 0; font-size: 16px; margin-bottom: 20px;
+            text-decoration: underline; transition: color 0.3s;
+        }
+        .btn-link:hover { color: var(--verde-escuro); }
 
         /* Estilos da Página Sócios */
         .seccao-quotas {
@@ -269,7 +276,7 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 25px; /* Espaçamento entre os links */
+            gap: 25px;
         }
         
         .links-legais-linha a {
@@ -334,17 +341,26 @@
                     <div class="cartao">
                         <h3>Último Jogo</h3>
                         <h4>Vitória ergue taça de campeão no adeus à I Divisão da AF Setúbal</h4>
-                        <p>Após a realização da derradeira jornada do campeonato da I Divisão da AF Setúbal, o invicto Vitória e os elementos que compõem o plantel principal, receberam ontem o troféu de campeão no Estádio do Bonfim. Um mês depois de terem alcançado matematicamente o primeiro lugar e a consequente subida ao Campeonato de Portugal, os sadinos ergueram a taça junto dos seus adeptos, que assistiram antes à goleada (4-0) sobre o Fabril do Barreiro.</p>
-                        <p>Na partida da 30.ª jornada, frente ao conjunto de Lavradio que já tinha visto consumada a descida de divisão na ronda anterior, o experiente Bruninho inaugurou o marcador, aos 18 minutos, fazendo o resultado ao intervalo. Na segunda parte, Zé Mário (49), Leo Chão (55) e Marco Véstia (90+3) fecharam as contas do jogo que antecedeu a comunhão que se verificou no final do jogo entre a equipa e os adeptos.</p>
-                        <p>O dia da consagração e do adeus ao campeonato 2025/26, em que os setubalenses terminaram a prova invictos (24 vitórias, seis empates em 30 partidas), ficou também marcado pelas celebrações do Dia do Vitoriano, que tinha começado na manhã de ontem com uma caminhada de cinco quilómetros na cidade e animação na Fanzone junto ao topo sul do estádio, que teve mais de quatro mil espetadores no adeus ao campeonato.</p>
-                        <p>Em relação ao jogo anterior com o Charneca de Caparica (triunfo sadino por 2-1), o treinador Paulo Martins fez três alterações no onze: Diogo Conceição, João Delgado e Bruninho substituíram China, Walter Sá e Véstia, respetivamente, enquanto Rodrigo Gomes, Diogo Martins, Tomás Piedade, Odilon Júnior, Heta, André Gomes, Leo Chão e Zé Mário mantiveram a titularidade.</p>
-                        <p>O primeiro remate do jogo pertenceu aos setubalenses, aos oito minutos, quando Zé Mário testou a atenção do guarda-redes Petterson. Aos 12, foi a vez de Bruninho ameaçar marcar num cabeceamento que saiu sobre a trave, após cruzamento de Heta da esquerda. Após os avisos, o 1-0 chegou, aos 18 minutos, por Bruninho, atacante que finalizou com classe no interior da área, depois de cruzamento da direita de Leo Chão.</p>
-                        <p>Sem dificuldades em manter o controlo do jogo, o Vitória, ainda antes da meia hora de jogo, só não ampliou a vantagem porque o guardião dos fabrilistas impediu, aos 26 minutos, que um remate forte de Zé Mário resultasse em golo. Manteve-se a vantagem de um golo ao intervalo da partida, momento em que Odilon Júnior e André Gomes foram homenageados pelos 50 jogos ao serviço da equipa principal do Vitória.</p>
-                        <p><strong>Mais três golos na segunda parte</strong></p>
-                        <p>Após o reatamento, já com China em campo (rendeu o capitão Diogo Martins), o Vitória conseguiu em 10 minutos ampliar para 3-0. Aos 49, Zé Mário foi eficaz a desviar a bola de Dinis Garção, que não evitou o 2-0. O guardião, que tinha substituído Petterson na baliza ao intervalo, também não conseguiu impedir, aos 55, que Leo Chão fizesse o 3-0 e inscrevesse o seu nome na lista de marcadores.</p>
-                        <p>Já a pensar na final da Taça AFS de domingo, diante do Olímpico do Montijo, o treinador Paulo Martins, a meio da segunda parte, fez várias substituições: Leo Chão, André Gomes, Bruninho e Zé Mário deram lugar a Catarino, Marco Véstia, Carvalheira e Kiko, respetivamente. As mudanças não impediram os homens do Sado de dominar o encontro até ao fim, conseguindo inclusivamente fechar o marcador em 4-0.</p>
-                        <p>O golo foi alcançado já em período de compensação (90+3) através do veterano Marco Véstia, de 40 anos, que chegou esta época ao Bonfim oriundo do Alcochetense. No interior da área, o avançado dominou a bola e tirou-a do caminho dos adversários, desferindo um remate forte para o 4-0 num momento de enorme emoção do atleta que se estreou na última jornada a marcar no campeonato pelos sadinos.</p>
                         
+                        <!-- Parágrafo Inicial Visível -->
+                        <p>Após a realização da derradeira jornada do campeonato da I Divisão da AF Setúbal, o invicto Vitória e os elementos que compõem o plantel principal, receberam ontem o troféu de campeão no Estádio do Bonfim. Um mês depois de terem alcançado matematicamente o primeiro lugar e a consequente subida ao Campeonato de Portugal, os sadinos ergueram a taça junto dos seus adeptos, que assistiram antes à goleada (4-0) sobre o Fabril do Barreiro.</p>
+                        
+                        <!-- Bloco Oculto da Notícia -->
+                        <div id="noticia-completa" style="display: none;">
+                            <p>Na partida da 30.ª jornada, frente ao conjunto de Lavradio que já tinha visto consumada a descida de divisão na ronda anterior, o experiente Bruninho inaugurou o marcador, aos 18 minutos, fazendo o resultado ao intervalo. Na segunda parte, Zé Mário (49), Leo Chão (55) e Marco Véstia (90+3) fecharam as contas do jogo que antecedeu a comunhão que se verificou no final do jogo entre a equipa e os adeptos.</p>
+                            <p>O dia da consagração e do adeus ao campeonato 2025/26, em que os setubalenses terminaram a prova invictos (24 vitórias, seis empates em 30 partidas), ficou também marcado pelas celebrações do Dia do Vitoriano, que tinha começado na manhã de ontem com uma caminhada de cinco quilómetros na cidade e animação na Fanzone junto ao topo sul do estádio, que teve mais de quatro mil espetadores no adeus ao campeonato.</p>
+                            <p>Em relação ao jogo anterior com o Charneca de Caparica (triunfo sadino por 2-1), o treinador Paulo Martins fez três alterações no onze: Diogo Conceição, João Delgado e Bruninho substituíram China, Walter Sá e Véstia, respetivamente, enquanto Rodrigo Gomes, Diogo Martins, Tomás Piedade, Odilon Júnior, Heta, André Gomes, Leo Chão e Zé Mário mantiveram a titularidade.</p>
+                            <p>O primeiro remate do jogo pertenceu aos setubalenses, aos oito minutos, quando Zé Mário testou a atenção do guarda-redes Petterson. Aos 12, foi a vez de Bruninho ameaçar marcar num cabeceamento que saiu sobre a trave, após cruzamento de Heta da esquerda. Após os avisos, o 1-0 chegou, aos 18 minutos, por Bruninho, atacante que finalizou com classe no interior da área, depois de cruzamento da direita de Leo Chão.</p>
+                            <p>Sem dificuldades em manter o controlo do jogo, o Vitória, ainda antes da meia hora de jogo, só não ampliou a vantagem porque o guardião dos fabrilistas impediu, aos 26 minutos, que um remate forte de Zé Mário resultasse em golo. Manteve-se a vantagem de um golo ao intervalo da partida, momento em que Odilon Júnior e André Gomes foram homenageados pelos 50 jogos ao serviço da equipa principal do Vitória.</p>
+                            <p><strong>Mais três golos na segunda parte</strong></p>
+                            <p>Após o reatamento, já com China em campo (rendeu o capitão Diogo Martins), o Vitória conseguiu em 10 minutos ampliar para 3-0. Aos 49, Zé Mário foi eficaz a desviar a bola de Dinis Garção, que não evitou o 2-0. O guardião, que tinha substituído Petterson na baliza ao intervalo, também não conseguiu impedir, aos 55, que Leo Chão fizesse o 3-0 e inscrevesse o seu nome na lista de marcadores.</p>
+                            <p>Já a pensar na final da Taça AFS de domingo, diante do Olímpico do Montijo, o treinador Paulo Martins, a meio da segunda parte, fez várias substituições: Leo Chão, André Gomes, Bruninho e Zé Mário deram lugar a Catarino, Marco Véstia, Carvalheira e Kiko, respetivamente. As mudanças não impediram os homens do Sado de dominar o encontro até ao fim, conseguindo inclusivamente fechar o marcador em 4-0.</p>
+                            <p>O golo foi alcançado já em período de compensação (90+3) através do veterano Marco Véstia, de 40 anos, que chegou esta época ao Bonfim oriundo do Alcochetense. No interior da área, o avançado dominou a bola e tirou-a do caminho dos adversários, desferindo um remate forte para o 4-0 num momento de enorme emoção do atleta que se estreou na última jornada a marcar no campeonato pelos sadinos.</p>
+                        </div>
+                        
+                        <!-- Botão Ler Mais -->
+                        <button id="btn-ler-noticia" class="btn-link" onclick="toggleLerMais()">Ler mais »</button>
+
                         <div class="galeria-fotos">
                             <img src="https://scontent-lis1-1.xx.fbcdn.net/v/t39.30808-6/713144814_1591782569616090_6027225083310954486_n.jpg?stp=dst-jpg_s1080x2048_tt6&_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_ohc=fFANntN7gH4Q7kNvwEyyRCd&_nc_oc=AdonaWcgQ-1X-JXXSMQSSnO63vVbF7RfkEaIuEa5gnHCqK-eujFMx2Vj5m5dOmebDQ4&_nc_zt=23&_nc_ht=scontent-lis1-1.xx&_nc_gid=Cm_uW3hTM708JAgHGcJSHQ&_nc_ss=7c2a8&oh=00_Af95E5kuaiBKZ6U8caw4Tx4QzjSb9UaqkmaSVZDapqLVlg&oe=6A27439B" alt="Celebração">
                             <img src="https://scontent-lis1-1.xx.fbcdn.net/v/t39.30808-6/710742286_1595203449274002_4007055165291032040_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_ohc=mlWos4odzYgQ7kNvwG9eaNn&_nc_oc=Adr8qDF2CSYOVMGdSXkbtoL0QVEnlYsAHLMZhdss7bZyw4DrB3LtMwZXNeh_gXx5_7A&_nc_zt=23&_nc_ht=scontent-lis1-1.xx&_nc_gid=vA-PvasVghJCd-wjpudMfQ&_nc_ss=7c2a8&oh=00_Af_bOXasg0xPASoszOAxUc8IYsuF1EMlhHtxwhd97NlGBw&oe=6A27113B" alt="Ação no Jogo 1">
@@ -609,7 +625,7 @@
             <a href="#">Termos e Condições</a>
             <a href="#">Livro de Reclamações</a>
         </div>
-        <p style="margin-top: 15px; color: var(--verde-vitoria); font-weight: bold; font-size: 16px;">dpo@vfc.pt</p>
+        <p style="margin-top: 15px; color: var(--verde-vitoria); font-weight: bold; font-size: 16px; text-align: center;">dpo@vfc.pt</p>
     </div>
 
     <!-- RODAPÉ FINAL -->
@@ -618,8 +634,9 @@
         <p style="margin: 5px 0 0 0; font-size: 12px; color: rgba(255,255,255,0.7);">Mockup interativo desenvolvido para demonstração.</p>
     </footer>
 
-    <!-- Lógica de Navegação -->
+    <!-- Lógica de Navegação e Ler Mais -->
     <script>
+        // Função para Navegar entre Páginas
         function mostrarPagina(paginaId) {
             const paginas = document.querySelectorAll('.pagina');
             paginas.forEach(p => p.style.display = 'none');
@@ -635,6 +652,21 @@
             window.scrollTo(0, 0);
         }
 
+        // Função para mostrar/esconder o resto da notícia
+        function toggleLerMais() {
+            var textoOculto = document.getElementById("noticia-completa");
+            var btn = document.getElementById("btn-ler-noticia");
+            
+            if (textoOculto.style.display === "none") {
+                textoOculto.style.display = "block";
+                btn.innerHTML = "Ler menos «";
+            } else {
+                textoOculto.style.display = "none";
+                btn.innerHTML = "Ler mais »";
+            }
+        }
+
+        // Arrancar o site no Início
         window.onload = () => mostrarPagina('inicio');
     </script>
 
